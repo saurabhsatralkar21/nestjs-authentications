@@ -10,12 +10,12 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   login(@Request() req): any {
-    return req.user;
+    return { msg: "Logged In"};
   }
 
   // Session has to be statefull
   // JWT is stateless
-  
+
   @UseGuards(AuthenticatedGuard)
   @Get('protected')
   getHello(@Request() req): string {
